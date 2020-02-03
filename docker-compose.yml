@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  minecraft:
+    image: skyblue3350/minecraft-spigot
+    restart: always
+    ports:
+      - 25565:25565
+      - 8123:8123
+    environment:
+      - EXTRA_ARG=nogui
+    volumes:
+      - ./plugins:/mc/plugins
+      - ./world:/mc/world
+      - ./conf.d/plugins/DiscordSRV/config.yml:/mc/plugins/DiscordSRV/config.yml
+      - ./conf.d/server.properties:/mc/server.properties
+      - ./conf.d/whitelist.json:/mc/whitelist.json
+      - ./conf.d/ops.json:/mc/ops.json
